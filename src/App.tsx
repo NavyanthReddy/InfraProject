@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Display from './components/Display'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +20,7 @@ function App() {
         >
           Count is not {count}
         </button>
+        <Display />
       </section>
     </>
   )
