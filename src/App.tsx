@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Display from './components/Display'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -8,6 +8,8 @@ function App() {
     <>
       <section id="center">
         <div>
+          <h1>building a new feature and adding it to main.</h1>
+          
           <h1>Get started</h1>
           <p>
             Dont See changes on github
@@ -20,6 +22,7 @@ function App() {
         >
           Count is not {count}
         </button>
+        <Display />
       </section>
     </>
   )
