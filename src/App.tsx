@@ -8,10 +8,8 @@ function App() {
     <>
       <section id="center">
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+          <h1>building a new feature and adding it to main.</h1>
+          
         </div>
         <button
           type="button"
