@@ -10,6 +10,10 @@ function App() {
         <div>
           <h1>building a new feature and adding it to main.</h1>
           
+          <h1>Get started</h1>
+          <p>
+            Dont See changes on github
+          </p>
         </div>
         <button
           type="button"
