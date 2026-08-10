@@ -8,18 +8,8 @@ function App() {
     <>
       <section id="center">
         <div>
-          <h1>Get started</h1>
-          <p>
-            Dont See changes on github
-          </p>
+          <h1>Dev2 updated main in the meanwhile</h1>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is not {count}
-        </button>
       </section>
     </>
   )
