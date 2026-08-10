@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Display from './components/Display'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -8,7 +8,7 @@ function App() {
     <>
       <section id="center">
         <div>
-          <h1>Dev2 updated main in the meanwhile</h1>
+          <h1>Dev3 updated main in the meanwhile</h1>
         </div>
       </section>
     </>
