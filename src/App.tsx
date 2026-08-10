@@ -11,6 +11,7 @@ function App() {
           <h1>I made change to local feature and trying to merge with main</h1>
         </div>
         <Display />
+          <h1>Dev3 updated main in the meanwhile</h1>
       </section>
     </>
   )
