@@ -10,7 +10,7 @@ function App() {
         <div>
           <h1>Get started</h1>
           <p>
-            Working on feature branch
+            See changes on github
           </p>
         </div>
         <button
