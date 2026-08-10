@@ -8,20 +8,8 @@ function App() {
     <>
       <section id="center">
         <div>
-          <h1>This is my test.</h1>
-          
-          <h1>Get started</h1>
-          <p>
-            Dont See changes on github
-          </p>
+          <h1>I made change to local feature and trying to merge with main</h1>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is not {count}
-        </button>
         <Display />
       </section>
     </>
