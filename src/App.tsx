@@ -1,26 +1,22 @@
 import { useState } from 'react'
+// import { Vehicle, VehicleStatus} from './types/vehicle'
+import {mockVehicles} from './data/mockVehicles'
 
+import SearchBar from './components/SearchBar'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [vehicles, setVehicles] = useState<Vehicle[]>(mockVehicles)
+
+  const [searchTerm, setSearchTerm] = useState<string>('')
+
+  // const [statusFilter,setStatusFilter] = useState<VehicleStatus | 'all'>('all')
+
+  // const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null)
 
   return (
     <>
-      <section id="center">
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      
     </>
   )
 }
