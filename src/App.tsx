@@ -4,21 +4,50 @@ import {mockVehicles} from './data/mockVehicles'
 
 import SearchBar from './components/SearchBar'
 import StatusFilter from './components/StatusFilter'
+import StatsBar from './components/StatsBar'
+import VehicleTable from './components/VehicleTable'
+import VehicleDetail from './components/VehicleDetail'
 
 function App() {
-  // const [vehicles, setVehicles] = useState<Vehicle[]>(mockVehicles)
+  const [vehicles, setVehicles] = useState<Vehicle[]>(mockVehicles)
 
   const [searchTerm, setSearchTerm] = useState<string>('')
 
   const [statusFilter,setStatusFilter] = useState<VehicleStatus | 'all'>('all')
 
-  // const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null)
+  const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null) 
+
+  const handleRowClick = (vin: string) => {
+  setSelectedVehicleId(vin)
+}
+
+  const handleStatusChange = (vin: string, status: VehicleStatus) => {
+    setVehicles((prev) => prev.map((v) => (v.vin === vin ? { ...v, status } : v)))
+  }
+
+  const selectedVehicle = vehicles.find((v) => v.vin === selectedVehicleId) ?? null
+
+  const filteredVehicles = vehicles.filter((vehicle) => {
+    const matchesSearchTerm =
+      vehicle.vin.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
+      vehicle.model.toLowerCase().startsWith(searchTerm.toLowerCase())
+
+    const matchesStatusFilter = statusFilter === 'all' || vehicle.status === statusFilter
+
+    return matchesSearchTerm && matchesStatusFilter
+  })
 
   return (
     <>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <StatusFilter statusFilter={statusFilter} setStatusFilter={setStatusFilter} />
-      
+      <StatsBar vehicles = {vehicles}/>
+      <VehicleTable vehicles={filteredVehicles} handleClick={handleRowClick} />
+      <VehicleDetail
+        vehicle={selectedVehicle}
+        onClose={() => setSelectedVehicleId(null)}
+        onStatusChange={handleStatusChange}
+      />
     </>
   )
 }
