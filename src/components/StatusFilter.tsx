@@ -8,8 +8,12 @@ type StatusFilterProps = {
 
 function StatusFilter({ statusFilter, setStatusFilter }: StatusFilterProps) {
   return (
-    <div>
-      <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as VehicleStatus | 'all')}>
+    <div className="status-filter">
+      <select
+        className="status-filter__select"
+        value={statusFilter}
+        onChange={(e) => setStatusFilter(e.target.value as VehicleStatus | 'all')}
+      >
         <option value="all">All</option>
         <option value="active">Active</option>
         <option value="in service">In Service</option>

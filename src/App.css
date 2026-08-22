@@ -1,0 +1,230 @@
+.app {
+  padding: 0 24px 48px;
+}
+
+.app-title {
+  margin: 0 0 24px;
+}
+
+.app-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+/* Search bar */
+.search-bar {
+  flex: 1;
+  min-width: 220px;
+}
+
+.search-bar__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.search-bar__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* Status filter */
+.status-filter__select {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.stats-bar__item {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--text-h);
+}
+
+.stats-bar__item--active {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+.stats-bar__item--in-service {
+  background: rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.4);
+}
+
+.stats-bar__item--offline {
+  background: rgba(148, 163, 184, 0.15);
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+/* Vehicle table */
+.vehicle-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.vehicle-table__empty {
+  color: var(--text);
+  padding: 24px 0;
+}
+
+/* Vehicle row */
+.vehicle-row {
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  background: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.vehicle-row:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.vehicle-row__vin {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.vehicle-row__model {
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.vehicle-row__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+.vehicle-row__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.vehicle-row__status--active {
+  color: #16a34a;
+}
+
+.vehicle-row__status--offline {
+  color: #94a3b8;
+}
+
+.vehicle-row__status--in-service {
+  color: #ca8a04;
+}
+
+.vehicle-row__battery,
+.vehicle-row__location {
+  font-size: 13px;
+  color: var(--text);
+  margin: 2px 0;
+}
+
+/* Vehicle detail modal */
+.vehicle-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 10;
+}
+
+.vehicle-detail {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 32px 24px 24px;
+  width: 100%;
+  max-width: 360px;
+  text-align: left;
+}
+
+.vehicle-detail__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: var(--code-bg);
+  color: var(--text-h);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.vehicle-detail__close:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.vehicle-detail__vin {
+  margin: 0 0 16px;
+}
+
+.vehicle-detail__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+
+.vehicle-detail__row:last-child {
+  border-bottom: none;
+}
+
+.vehicle-detail__label {
+  color: var(--text);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vehicle-detail__status-select {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  text-transform: capitalize;
+}
