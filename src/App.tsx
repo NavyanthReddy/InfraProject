@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Vehicle, VehicleStatus} from './types/vehicle'
 import {mockVehicles} from './data/mockVehicles'
+import './App.css'
 
 import SearchBar from './components/SearchBar'
 import StatusFilter from './components/StatusFilter'
@@ -38,9 +39,12 @@ function App() {
   })
 
   return (
-    <>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <StatusFilter statusFilter={statusFilter} setStatusFilter={setStatusFilter} />
+    <div className="app">
+      <h1 className="app-title">Fleet Dashboard</h1>
+      <div className="app-controls">
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <StatusFilter statusFilter={statusFilter} setStatusFilter={setStatusFilter} />
+      </div>
       <StatsBar vehicles = {vehicles}/>
       <VehicleTable vehicles={filteredVehicles} handleClick={handleRowClick} />
       <VehicleDetail
@@ -48,7 +52,7 @@ function App() {
         onClose={() => setSelectedVehicleId(null)}
         onStatusChange={handleStatusChange}
       />
-    </>
+    </div>
   )
 }
 

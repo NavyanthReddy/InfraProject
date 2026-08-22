@@ -14,25 +14,39 @@ function VehicleDetail({ vehicle, onClose, onStatusChange }: VehicleDetailProps)
   }
 
   return (
-    <div>
-      <button onClick={onClose}>Close</button>
-      <h2>{vehicle.vin}</h2>
-      <p>Model: {vehicle.model}</p>
-      <p>
-        Status:{' '}
-        <select
-          value={vehicle.status}
-          onChange={(e) => onStatusChange(vehicle.vin, e.target.value as VehicleStatus)}
-        >
-          {STATUS_OPTIONS.map((status) => (
-            <option key={status} value={status}>
-              {status}
-            </option>
-          ))}
-        </select>
-      </p>
-      <p>Battery: {vehicle.batteryPercent}%</p>
-      <p>Location: {vehicle.location}</p>
+    <div className="vehicle-detail-overlay" onClick={onClose}>
+      <div className="vehicle-detail" onClick={(e) => e.stopPropagation()}>
+        <button className="vehicle-detail__close" onClick={onClose}>
+          Close
+        </button>
+        <h2 className="vehicle-detail__vin">{vehicle.vin}</h2>
+        <p className="vehicle-detail__row">
+          <span className="vehicle-detail__label">Model</span>
+          {vehicle.model}
+        </p>
+        <p className="vehicle-detail__row">
+          <span className="vehicle-detail__label">Status</span>
+          <select
+            className="vehicle-detail__status-select"
+            value={vehicle.status}
+            onChange={(e) => onStatusChange(vehicle.vin, e.target.value as VehicleStatus)}
+          >
+            {STATUS_OPTIONS.map((status) => (
+              <option key={status} value={status}>
+                {status}
+              </option>
+            ))}
+          </select>
+        </p>
+        <p className="vehicle-detail__row">
+          <span className="vehicle-detail__label">Battery</span>
+          {vehicle.batteryPercent}%
+        </p>
+        <p className="vehicle-detail__row">
+          <span className="vehicle-detail__label">Location</span>
+          {vehicle.location}
+        </p>
+      </div>
     </div>
   )
 }

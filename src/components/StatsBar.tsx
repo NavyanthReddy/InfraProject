@@ -16,10 +16,10 @@ function StatsBar({ vehicles }: StatsBarProps) {
   const { active, inService, offline } = getStatusCounts(vehicles)
 
   return (
-    <div>
-      <span>Active: {active}</span>
-      <span>In Service: {inService}</span>
-      <span>Offline: {offline}</span>
+    <div className="stats-bar">
+      <span className="stats-bar__item stats-bar__item--active">Active: {active}</span>
+      <span className="stats-bar__item stats-bar__item--in-service">In Service: {inService}</span>
+      <span className="stats-bar__item stats-bar__item--offline">Offline: {offline}</span>
     </div>
   )
 }
